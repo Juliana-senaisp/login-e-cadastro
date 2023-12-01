@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Página Protegida</title>
+  <style>
+    /* Estilos CSS */
+  </style>
+</head>
+<body>
+  <h1>Página Protegida</h1>
+
+  <p>Aqui está o texto e a imagem da página.</p>
+  <img src="imagem.jpg" alt="Imagem">
+
+  <button id="protegido">Botão Protegido</button>
+
+  <script>
+    // JavaScript
+    const button = document.getElementById('protegido');
+
+    button.addEventListener('click', function(event) {
+      event.preventDefault();
+
+      const user = JSON.parse(localStorage.getItem('user'));
+
+      if (user && user.name) {
+        alert(`Bem-vindo, ${user.name}!`);
+      } else {
+        alert('Você precisa estar logado para acessar esta página.');
+        window.location.href = 'login.html';
+      }
+    });
+  </script>
+</body>
+</html>
