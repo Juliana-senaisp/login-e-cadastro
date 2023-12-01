@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cadastro</title>
+  <style>
+    /* Estilos CSS */
+  </style>
+</head>
+<body>
+  <h1>Cadastro</h1>
+
+  <form id="registrationForm">
+    <label for="name">Nome:</label>
+    <input type="text" id="name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" required>
+
+    <label for="password">Senha:</label>
+    <input type="password" id="password" required>
+
+    <button type="submit">Cadastrar</button>
+  </form>
+
+  <script>
+    // JavaScript
+    const form = document.getElementById('registrationForm');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      const user = {
+        name: name,
+        email: email,
+        password: password
+      };
+
+      localStorage.setItem('user', JSON.stringify(user));
+
+      alert('Cadastro realizado com sucesso!');
+      location.href = 'testeLogin.html';
+
+      form.reset();
+    });
+  </script>
+</body>
+</html>
